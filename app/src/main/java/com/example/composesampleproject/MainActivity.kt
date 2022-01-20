@@ -36,19 +36,19 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyFun(context:Context){
+fun MyFun(context: Context) {
 
-    val count= remember {
+    val count = remember {
         mutableStateOf(0)
     }
 
-    val itemClickListener=object :ItemClickListener{
+    val itemClickListener = object : ItemClickListener {
         override fun onItemClick(num: Int) {
-            if(num==0){
+            if (num == 0) {
                 count.value++
                 //Toast.makeText(context,"Button pressed",Toast.LENGTH_SHORT).show()
 
-            }else{
+            } else {
                 count.value--
                 //Toast.makeText(context,"Image Clicked",Toast.LENGTH_SHORT).show()
 
@@ -57,16 +57,16 @@ fun MyFun(context:Context){
 
     }
     Surface(color = Color.Cyan) {
-        ShowText(context ,"Print this value",itemClickListener,count.value)
+        ShowText(context, "Print this value", itemClickListener, count.value)
 
     }
 }
 
 @Composable
-fun ShowText(context: Context?,name: String, itemClickListener: ItemClickListener?,count: Int) {
+fun ShowText(context: Context?, name: String, itemClickListener: ItemClickListener?, count: Int) {
     //Text(text = "$name", modifier = Modifier.padding(20.dp), color = Purple200)
     Row() {
-        Column(modifier = Modifier.padding(0.dp,0.dp,20.dp,0.dp)) {
+        Column(modifier = Modifier.padding(0.dp, 0.dp, 20.dp, 0.dp)) {
             Text(text = "Abc")
             Text(text = "ABC")
         }
@@ -76,23 +76,26 @@ fun ShowText(context: Context?,name: String, itemClickListener: ItemClickListene
         }
         Text(text = "Xyz")
 
-        Column(verticalArrangement = Arrangement.Center
-            ,modifier = Modifier
+        Column(
+            verticalArrangement = Arrangement.Center, modifier = Modifier
                 .padding(20.dp)
-                .fillMaxSize()) {
+                .fillMaxSize()
+        ) {
             showButton(itemClickListener)
             showText(count)
             showImage(itemClickListener)
         }
     }
-    Column(horizontalAlignment = Alignment.CenterHorizontally,
-    verticalArrangement = Arrangement.Bottom,
-    modifier = Modifier
-        .padding(0.dp, 0.dp, 0.dp, 20.dp)
-        .fillMaxHeight()
-        .fillMaxWidth()) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Bottom,
+        modifier = Modifier
+            .padding(0.dp, 0.dp, 0.dp, 20.dp)
+            .fillMaxHeight()
+            .fillMaxWidth()
+    ) {
         Button(onClick = {
-            context?.startActivity(Intent(context,SecondActivity::class.java))
+            context?.startActivity(Intent(context, SecondActivity::class.java))
         }) {
             Text(text = "Launch new activity")
         }
@@ -104,6 +107,6 @@ fun ShowText(context: Context?,name: String, itemClickListener: ItemClickListene
 @Composable
 fun DefaultPreview() {
     ComposeSampleProjectTheme {
-        ShowText(null,"yessssssss",null,0)
+        ShowText(null, "yessssssss", null, 0)
     }
 }

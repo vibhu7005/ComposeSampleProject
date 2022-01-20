@@ -30,36 +30,43 @@ class SecondActivity : AppCompatActivity() {
 }
 
 @Composable
-fun showText(context:Activity){
-    val count= remember {
+fun showText(context: Activity) {
+    val count = remember {
         mutableStateOf(10000)
     }
-    val itemClickListener=object : ItemClickListener{
+    val itemClickListener = object : ItemClickListener {
         override fun onItemClick(num: Int) {
-            if(num==0){
-                count.value=count.value*10
-            }else{
-                count.value=count.value/10
+            if (num == 0) {
+                count.value = count.value * 10
+            } else {
+                count.value = count.value / 10
             }
         }
     }
 
-   Scaffold(
-       topBar = { TopAppBar(title={ Text(text = "Second Activity") },
-           backgroundColor = Color.Magenta) },
-       floatingActionButton = { FloatingActionButton(onClick = { context.finish() }) {
-           Icon(imageVector = Icons.Default.ArrowBack, contentDescription ="Back" )}
-       }
-   ) {
-       Column(verticalArrangement = Arrangement.Center,
-           horizontalAlignment = Alignment.CenterHorizontally
-           ,modifier = Modifier
-               .padding(20.dp)
-               .fillMaxSize()) {
-           showButton(itemClickListener)
-           com.example.composesampleproject.custom_widget.showText(count.value)
-           showImage(itemClickListener)
-       }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "Second Activity") },
+                backgroundColor = Color.Magenta
+            )
+        },
+        floatingActionButton = {
+            FloatingActionButton(onClick = { context.finish() }) {
+                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+            }
+        }
+    ) {
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
+                .padding(20.dp)
+                .fillMaxSize()
+        ) {
+            showButton(itemClickListener)
+            com.example.composesampleproject.custom_widget.showText(count.value)
+            showImage(itemClickListener)
+        }
 
-   }
+    }
 }

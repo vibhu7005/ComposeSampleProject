@@ -8,6 +8,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun showText(count:Int){
-    Text(text = "Count is $count",modifier = Modifier.padding(0.dp,20.dp,0.dp,0.dp), textAlign = TextAlign.Center)
+fun showText(count: Int) {
+    Text(
+        text = "Count is $count",
+        modifier = Modifier.padding(0.dp, 20.dp, 0.dp, 0.dp),
+        textAlign = TextAlign.Center
+    )
 }

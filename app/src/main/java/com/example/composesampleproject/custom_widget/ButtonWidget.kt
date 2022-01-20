@@ -12,11 +12,15 @@ import androidx.compose.ui.unit.dp
 import com.example.composesampleproject.util.ItemClickListener
 
 @Composable
-fun showButton(itemClickListener: ItemClickListener?){
-    Button(colors = ButtonDefaults.buttonColors(backgroundColor = androidx.compose.ui.graphics.Color.Magenta)
-        ,onClick = { itemClickListener?.onItemClick(0) }
-        ,modifier = Modifier.border(5.dp,androidx.compose.ui.graphics.Color.Green, shape = RoundedCornerShape(10.dp))
+fun showButton(itemClickListener: ItemClickListener?) {
+    Button(colors = ButtonDefaults.buttonColors(backgroundColor = androidx.compose.ui.graphics.Color.Magenta),
+        onClick = { itemClickListener?.onItemClick(0) },
+        modifier = Modifier.border(
+            5.dp,
+            androidx.compose.ui.graphics.Color.Green,
+            shape = RoundedCornerShape(10.dp)
+        )
     ) {
-        Text(text = "Click here",color = androidx.compose.ui.graphics.Color.Blue)
+        Text(text = "Click here", color = androidx.compose.ui.graphics.Color.Blue)
     }
 }

@@ -11,7 +11,11 @@ import com.example.composesampleproject.R
 import com.example.composesampleproject.util.ItemClickListener
 
 @Composable
-fun showImage(itemClickListener: ItemClickListener?){
-    Image(modifier = Modifier.padding(0.dp,20.dp,0.dp,0.dp).clickable { itemClickListener?.onItemClick(1) }
-        ,painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription = "Icon")
+fun showImage(itemClickListener: ItemClickListener?) {
+    Image(
+        modifier = Modifier
+            .padding(0.dp, 20.dp, 0.dp, 0.dp)
+            .clickable { itemClickListener?.onItemClick(1) },
+        painter = painterResource(id = R.drawable.ic_launcher_background),
+        contentDescription = "Icon")
 }
